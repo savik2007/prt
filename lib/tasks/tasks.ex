@@ -1,7 +1,9 @@
 defmodule PRT.Tasks do
   @moduledoc false
 
+  import Ecto.Query
   alias Ecto.Repo
+  alias PRT.Post
   use GenServer
 
   def start_link() do
@@ -69,10 +71,11 @@ defmodule PRT.Tasks do
   #  ------------------------------------------------------------------
 
   defp select_users_info() do
-    qeary = from user in users,
-    join: post in assoc(user, :post),
-    group_by: post.kind
-    select: %{:user_id => user.id, String.to_existing_atom (post.kind ++ "_count") => count(post.id)}
+
+    qeary = from pt in Post,
+    join: user in assoc(pt, :user),
+    group_by: pt.kind,
+    select: %{:user_id => user.id, pt.kind => count(pt.id)}
 
     qeary
     |> Repo.all()
@@ -86,6 +89,10 @@ defmodule PRT.Tasks do
 
   def repo_info(owner_repo) do
     GenServer.call(:prt_task, {:github_repo_info, owner_repo})
+  end
+
+  def ecto_query() do
+    GenServer.call(:prt_task, :ecto_query)
   end
 
 end
