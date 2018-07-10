@@ -9,6 +9,7 @@ defmodule PRT.Supervisor do
 
   def init(_) do
     children = [
+      supervisor(PRT.Repo, []),
       worker(PRT.Tasks, [])
     ]
 

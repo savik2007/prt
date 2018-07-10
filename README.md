@@ -1,25 +1,38 @@
 # PRT
 
 ##Tasks
-###For start application:
+Before start use application please add all values in config in the section `config :prt, PRT.Repo`
+
+For run dialyzer
+```elixir
+mix dialyzer
+```
+
+For run ecto migration
+```elixir
+mix ecto.migration
+```
+
+For start application:
 ```elixir
 iex -S mix
 ```
 
-###For run first task:
+For run first task:
 ```elixir
 PRT.wrap_lists([1, 2], ["a", "b", "c"])
 ```
 
-###For run second task :
+For run second task :
 ```elixir
 PRT.ecto_query()
 ```
 
-###For run third task:
+For run third task:
 ```elixir
 PRT.starts("rails/rails")
 ```
+
 ##Question
 
 I had worked with Erlang before I started work with Elixir. As Elixir was written over Erlang I can`t compare this language. 

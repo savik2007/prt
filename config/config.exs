@@ -28,3 +28,16 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+config :prt, github_api_repos_url: "https://api.github.com/repos"
+
+config :prt, PRT.Repo,
+       adapter: Ecto.Adapters.Postgres,
+       username: "",
+       password: "",
+       database: "",
+       hostname: "",
+       port: "",
+       pool_size: 10
+
+config :prt, ecto_repos: [PRT.Repo]
