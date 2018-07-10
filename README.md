@@ -20,7 +20,7 @@ iex -S mix
 
 For run first task:
 ```elixir
-PRT.wrap_lists([1, 2], ["a", "b", "c"])
+PRT.wrap_list([1, 2], ["a", "b", "c"])
 ```
 
 For run second task :
@@ -30,7 +30,7 @@ PRT.ecto_query()
 
 For run third task:
 ```elixir
-PRT.starts("rails/rails")
+PRT.github_stars("rails/rails")
 ```
 
 ##Question
