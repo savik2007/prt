@@ -3,27 +3,27 @@
 Before start use application you should add configuration of data in the section `config :prt, PRT.Repo`
 
 
-###For run dialyzer
+### For run dialyzer
 ```elixir
 mix dialyzer
 ```
 
-###For run ecto migration
+### For run ecto migration
 ```elixir
 mix ecto.migration
 ```
 
-###For run tests
+### For run tests
 ```elixir
 mix test
 ```
 
-###For start application:
+### For start application:
 ```elixir
 iex -S mix
 ```
 
-###First task:
+### First task:
     Function that accepts two lists and returns keyword list with keys (a,b) that combines two list.
     Example:
       => wrap_lists([1, 2], ["a", "b", "c"])
@@ -32,7 +32,7 @@ iex -S mix
 PRT.wrap_list([1, 2], ["a", "b", "c"])
 ```
 
-###Second task:
+### Second task:
     There is a database with table users(id, name) and posts(id, kind, text) where kind in
       ('article', 'promotion', 'link', 'image').
     Write an ecto query that returns such array of maps for all users and count of each kind of posts
@@ -40,7 +40,7 @@ PRT.wrap_list([1, 2], ["a", "b", "c"])
 PRT.ecto_query()
 ```
 
-###Third task:
+### Third task:
     Write a module with the function that accepts public repo name and returns stars count for this repo.
     If repo is private it returns `{:error, "repo is private"}`
     Example:
