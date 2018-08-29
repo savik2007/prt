@@ -1,6 +1,6 @@
 # PRT
 
-Before start use application you should add configuration of data in the section `config :prt, PRT.Repo`
+Before start use application you should add configuration of DB in the section `config :prt, PRT.Repo`
 
 
 ### For run dialyzer
