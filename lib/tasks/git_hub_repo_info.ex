@@ -7,7 +7,7 @@ defmodule PRT.GitHubRepoInfo do
   @spec repo_info(PRT.owner_repo()) :: PRT.repo_stars() | PRT.error()
 
   def repo_info(owner_repo) do
-    host_url = Application.get_env(:prt, :github_api_repos_url)
+    host_url = Application.get_env(:prt, :github_api)[:github_api_repos_url]
     "#{host_url}/#{owner_repo}"
     |> get()
     |> check_repos()

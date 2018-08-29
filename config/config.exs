@@ -29,15 +29,15 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
-config :prt, github_api_repos_url: "https://api.github.com/repos"
+config :prt, :github_api,
+       github_api_repos_url: "https://api.github.com/repos"
 
 config :prt, PRT.Repo,
        adapter: Ecto.Adapters.Postgres,
-       username: "",
-       password: "",
-       database: "",
-       hostname: "",
-       port: "",
+       username: "savik123",
+       password: "savik_123",
+       database: "blockchain_auth",
+       hostname: "localhost",
        pool_size: 10
 
 config :prt, ecto_repos: [PRT.Repo]

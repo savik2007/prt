@@ -9,6 +9,7 @@ defmodule PRT.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: [plt_add_deps: :transitive],
+      elixirc_paths: elixirc_paths(Mix.env)
     ]
   end
 
@@ -27,9 +28,13 @@ defmodule PRT.MixProject do
       {:poison, "~> 3.1"},
       {:ecto, "~> 2.2.10 "},
       {:db_connection, "~> 1.1"},
-      {:postgrex, "~> 0.13.0"},
+      {:postgrex, "~>  0.13.2"},
       {:dialyxir, "~> 1.0.0-rc.3", runtime: false},
+      {:ex_machina, "~> 2.2", only: :test},
+      {:bypass, "~> 0.8", only: :test}
     ]
   end
 
+  defp elixirc_paths(:test), do: ["lib", "priv", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 end

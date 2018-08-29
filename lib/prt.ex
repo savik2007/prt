@@ -38,12 +38,16 @@ defmodule PRT do
   """
   @spec wrap_list(list_values(), list_keys()) :: [wrap_list()]
 
-  def wrap_list(list_values, list_keys), do: Tasks.wrap_list(list_values, list_keys)
+  def wrap_list(list_values, list_keys) when is_list(list_values) and is_list(list_keys) do
+    Tasks.wrap_list(list_values, list_keys)
+  end
+
+  def wrap_list(_, _), do: {:error, "Incorrect params in request"}
 
   @doc """
     There is a database with table users(id, name) and posts(id, kind, text) where kind in
       ('article', 'promotion', 'link', 'image').
-    Write an ecto query that returns such array of maps for all users:
+    Write an ecto query that returns such array of maps for all users and count of each kind of posts
   """
   @spec ecto_query() :: [user_info()]
 
@@ -58,7 +62,7 @@ defmodule PRT do
   """
   @spec github_stars(owner_repo()) :: repo_stars() | error()
 
-  def github_stars(owner_repo), do: Tasks.repo_info(owner_repo)
-
+  def github_stars(owner_repo) when is_binary(owner_repo), do: Tasks.repo_info(owner_repo)
+  def github_stars(_), do: {:error, "Incorrect params in request"}
 
 end
